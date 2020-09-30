@@ -1,0 +1,41 @@
+\begin{frame}
+\frametitle{\currentname}
+Registro de visitas o asistencias
+\begin{figure}[H]
+\includegraphics[width=4cm]{img/posiciones.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\currentname}
+Rastreo y seguimiento de equipos o materiales valiosos
+\begin{figure}[H]
+\includegraphics[width=4cm]{img/posiciones.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\currentname}
+Conteo de visitas a áreas específicas dentro del alcance de los APs Meraki
+\begin{figure}[H]
+\includegraphics[width=4cm]{img/tablapos.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\currentname}
+Medición de la distancia entre dispositivos móviles
+\begin{figure}[H]
+\includegraphics[width=4cm]{img/posiciones.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{\currentname}
+Identificación, almacenamiento y posterior análisis de la ruta que siguió un dispositivo móvil.
+\end{frame}
+
+\begin{frame}
+\frametitle{\currentname}
+Identificación de grupos de dispositivos
+\end{frame}

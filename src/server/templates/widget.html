@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf8">
+    <title>Space Widget Demo</title>
+    <script src="https://code.s4d.io/widget-space/production/bundle.js"></script>
+    <link rel="stylesheet" href="https://code.s4d.io/widget-space/production/main.css">
+  </head>
+  <body>
+    <div id="my-webexteams-widget" style="width: 500px; height: 500px;"/>
+    <script>
+      var widgetEl = document.getElementById('my-webexteams-widget');
+      // Init a new widget
+      webex.widget(widgetEl).spaceWidget({
+        accessToken: 'MDIwMmFmNmEtMjczMi00MTc2LTg0YzgtMThjMzgxMjBiMTllZjhhODJmOTktODUw_PF84_consumer',
+        destinationId: 'Y2lzY29zcGFyazovL3VzL1JPT00vZjY2OTg3OWItMDdmYi0zYmI1LWE5MTctMjRiMWFhZjA5NmJj',
+        destinationType: 'spaceId', 
+        spaceActivities: {"files":false,"meet":true,"message":false,"people":false},
+        initialActivity: 'meet',
+      });
+    </script>
+  </body>
+</html>

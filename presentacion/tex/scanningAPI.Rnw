@@ -1,0 +1,16 @@
+\begin{frame}
+\frametitle{\currentname}
+La Meraki Scanning API\footnote{Una API es una interfaz mediante la cual se comunican 2 programas de computadora} hace solicitudes que deben de ser atendidas por un servidor web.
+\begin{figure}[H]
+\includegraphics[width=4cm]{img/scanningapi.png}
+\end{figure}
+\end{frame}
+
+\subsection{\hspace{1in}Arquitectura}
+\begin{frame}
+\frametitle{\currentname}
+El flujo de la información es muy sencillo. Cada uno de los APs envía al Dashboard de Meraki una estimación de la distancia a la que se encuentran los dispositivos (WiFi y BLE). En un servicio en la nube esta información se procesa para dar un estimado de la posición (GPS/XY) de cada dispositivo y se envían en formato JSON mediante POSTs HTTP que han de ser recibidor por un servidor identificado por el Dashboard.
+\begin{figure}[H]
+\includegraphics[width=4cm]{img/merakiarq.png}
+\end{figure}
+\end{frame}

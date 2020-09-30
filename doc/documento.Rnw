@@ -1,0 +1,16 @@
+\documentclass{article}
+\usepackage{mystyle}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+\title{Demo Meraki}
+\author{Manuel}
+\maketitle
+\newpage
+
+\section{Introducción}
+\SweaveInput{tex/intro.Rnw}
+
+
+\end{document}

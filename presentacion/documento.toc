@@ -1,0 +1,6 @@
+\babel@toc {spanish}{}
+\beamer@sectionintoc {1}{\hspace {1in}Meraki}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{\hspace {1in}Integraciones Meraki}{3}{0}{1}
+\beamer@sectionintoc {2}{\hspace {1in}Meraki Scanning API}{4}{0}{2}
+\beamer@subsectionintoc {2}{1}{\hspace {1in}Arquitectura}{5}{0}{2}
+\beamer@sectionintoc {3}{\hspace {1in}Casos posibles de uso}{6}{0}{3}

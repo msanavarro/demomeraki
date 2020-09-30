@@ -1,0 +1,23 @@
+\documentclass{beamer}
+
+\usepackage{mystyle}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+\title{Demo Meraki}
+\titlegraphic{\includegraphics[width=4cm]{img/isat.jpg}}
+\author{Manuel}
+
+\frame{\titlepage}
+
+\section{\hspace{1in}Meraki}
+\SweaveInput{tex/intro.Rnw}
+
+\section{\hspace{1in}Meraki Scanning API}
+\SweaveInput{tex/scanningAPI.Rnw}
+
+\section{\hspace{1in}Casos posibles de uso}
+\SweaveInput{tex/casos.Rnw}
+
+\end{document}

@@ -1,0 +1,31 @@
+\begin{frame}
+\frametitle{\currentname}
+\begin{figure}[H]
+\includegraphics[width=4cm]{img/meraki.png}
+\end{figure}
+\emph{Cisco Meraki} es un conjunto de herramientas que permiten la unificación de la administración de la red sobre ubicaciones, infraestructuras y dispositivos. \\ 
+Entre sus componentes se incluyen:
+\begin{enumerate}
+\item Solución completa de administración de la red desde la nube.
+\item Administración de Wireless, Switching, Seguridad y SD-WAN, Administración de Dispositivos Móviles (MDM), y Cámaras Inteligentes.
+\item Hardware, software y servicios en la nube integrados entre sí.
+\end{enumerate}
+\end{frame}
+
+\subsection{\hspace{1in}Integraciones Meraki}
+\begin{frame}
+\frametitle{\currentname}
+Existen 5 vías mediante las cuales una aplicación puede extender las funcionalidades de Meraki.
+\begin{enumerate}
+\item \emph{Dashboard API} \\
+Servicio RESTful de suministro, administración y monitoreo de dispositivos.
+\item \emph{WebHook Alerts} \\
+Notificaciones en tiempo real de la salud de la red
+\item \emph{Location Scanning API} \\
+Método HTTP POST que envía posiciones (GPS, X/Y) basado en APs Meraki
+\item \emph{MV Sense} \\
+Vistas en tiempo real de imagen y posición desde cámaras MV
+\item \emph{External Captive Portal (EXCAP)} \\
+Uso de la red WiFi para construir lealtad del cliente
+\end{enumerate}
+\end{frame}
