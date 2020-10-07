@@ -1,9 +1,9 @@
 **API Registro al webhook para alarma Equipo Fijo DEMO ISAT Meraki**
 ----
-Registro a las notificaciones del webhook que funciona como alarma de equipo fijo. Consultarlo con el la documentación de la llamada a **v1/report/equipo_fijo** para más información.
+Registro a las notificaciones del webhook que funciona como alarma de equipo fijo. Consultarlo con el la documentación de la llamada en **API_EquipoFijo** para más información.
 
 
-* **/v1/report/registro_wh**
+* **/v1/report/webhookregistry**
 
 
 * **Method:**
@@ -15,12 +15,11 @@ Registro a las notificaciones del webhook que funciona como alarma de equipo fij
 
    **Required [POST]:**
 
-    * `url:(str)`
-    * `metodo:[GET|POST]`
+    * `clientUrl:(str)`
 
   **Required [DELETE]:**
 
-    * `url:(str)`
+    * `clientUrl:(str)`
 
    **Optional:**
 

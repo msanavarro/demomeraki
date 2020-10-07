@@ -1,14 +1,14 @@
 **API Alarma Equipo Fijo DEMO ISAT Meraki**
 ----
 Alarma que se activa cuando un equipo que se supone fijo deja de aparecer en los datos recibidos desde los APs de Meraki.
-Para recibir la alarma primero es necesario registrarse en la base de datos del Webhook mediante la llamada POST a **/v1/report/registro_wh**, documentada por separado.
+Para recibir la alarma primero es necesario registrarse en la base de datos del Webhook mediante la llamada POST a **/v1/report/webhookregistry**, documentada por separado.
 
 * **https://cliente:puerto/ejemplo/abc**
 
 
 * **Method:**
 
-  `[GET, POST]`
+  `POST`
 
 
 *  **URL Params**

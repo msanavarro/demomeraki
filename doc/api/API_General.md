@@ -31,17 +31,15 @@ Reporte de resultados general de afluencia de personal
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{
+    **Content:** `[
+    {
         mac_adrr: 12:32:43:23:32:EE
         nombre: "Alejandro Jose Sanchez"
         num_entradas : 12,
         num_salidas: 5,
-        timempo_promedio: 3hr
-        tiempo_max = 5hr
-        tiempo_min = .5hr
-        dia_t_max = 12/08/2020
-        dia_t_min = 13/08/2020
-         }`
+        tiempo_promedio: 3hr
+         }
+    ]`
 
 
 
@@ -52,24 +50,6 @@ Reporte de resultados general de afluencia de personal
     * **Content:**  `{ errorid: 2, error : "formato de fecha erroneo" }`<br/>
     * **Content:** `{ errorid: 3, error : "fecha inicial mayor que fecha final" }` <br/>
  <br/>
-
-  OR
-
-  * **Code:** 404 Not Found <br />
-    **Content:** `{ error : "error en metodo" }`
-
-    OR
-
-    * **Code:** 403 Forbidden <br />
-      **Content:** `{ error : "credenciales erroneas" }`
-
-    OR
-
-    * **Code:** 404 Not Found <br />
-      **Content:** `{ error : "el recurso que esta buscando no esta disponible" }`
-
-    OR
-
     * **Code:** 500 server error <br />
       **Content:** `{ error : "error en servidor" }`
 
