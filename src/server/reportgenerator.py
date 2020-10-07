@@ -41,24 +41,24 @@ def generate_general_report():
             return (error, 400)
     return("Server error", 500)
 
-@bp.route('/v1/report/INTRADIAS', methods=['GET'])
-def generate_general_report():
-    if request.method == 'GET':
-        error = None
-        db = get_db()
-        cursor = db.cursor()
-        cursor.execute(
-            'SELECT * FROM visits'
-        )
-        rows = cursor.fetchall()
-        data = []
-        for row in rows:
-            data.append({"macaddr":row['macaddr'], 
-                         "name":row['name'], 
-                         "timesseen":row['timesseen'],
-                         "averagestay":row['averagestay']
-                         })
-        return json.dumps(data)
-        if error is not None:
-            return (error, 400)
-    return("Server error", 500)
+# @bp.route('/v1/report/INTRADIAS', methods=['GET'])
+# def generate_general_report():
+#     if request.method == 'GET':
+#         error = None
+#         db = get_db()
+#         cursor = db.cursor()
+#         cursor.execute(
+#             'SELECT * FROM visits'
+#         )
+#         rows = cursor.fetchall()
+#         data = []
+#         for row in rows:
+#             data.append({"macaddr":row['macaddr'], 
+#                          "name":row['name'], 
+#                          "timesseen":row['timesseen'],
+#                          "averagestay":row['averagestay']
+#                          })
+#         return json.dumps(data)
+#         if error is not None:
+#             return (error, 400)
+#     return("Server error", 500)

@@ -121,7 +121,7 @@ def visits_table_helper(locationdata):
             print('{} sigue en el edificio'.format(row['macaddr']))
         else:
             lastarrivaltime = list(db.execute("SELECT lastarrivaltime FROM visits WHERE macaddr=?", macaddr).fetchone())[0]
-            lastexittime = list(db.execute("SELECT CURRENT_TIMESTAMP AS ", macaddr).fetchone())[0]
+            lastexittime = datetime.datetime.now() #list(db.execute("SELECT CURRENT_TIMESTAMP", macaddr).fetchone())[0]
             timesseen = list(db.execute("SELECT timesseen FROM visits WHERE macaddr=?", macaddr).fetchone())[0]
             averagestay = list(db.execute("SELECT averagestay FROM visits WHERE macaddr=?", macaddr).fetchone())[0]
             print(lastarrivaltime, lastexittime)
