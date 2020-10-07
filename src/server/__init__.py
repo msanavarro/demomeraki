@@ -35,6 +35,18 @@ def create_app(test_config=None):
     from . import auth
     app.register_blueprint(auth.bp)
     
+    from . import webhookregistry
+    app.register_blueprint(webhookregistry.bp)
+    
+    from . import devicemanager
+    app.register_blueprint(devicemanager.bp)
+    
+    from . import peoplemanager
+    app.register_blueprint(peoplemanager.bp)
+    
+    from . import reportgenerator
+    app.register_blueprint(reportgenerator.bp)
+    
     from server import records
     app.register_blueprint(records.bp)
     app.add_url_rule('/visits', endpoint='index')

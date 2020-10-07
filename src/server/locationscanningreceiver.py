@@ -35,6 +35,8 @@ from flask import current_app, g
 import sys, getopt
 import json
 from server.db import get_db
+from server.peoplemanager import visits_table_helper
+from server.devicemanager import disconnection_alarm
 import requests
 
 ############## USER DEFINED SETTINGS ###############
@@ -99,28 +101,8 @@ def get_locationJSON():
 
     # Determine device type
     if locationdata["type"] == "DevicesSeen":
-        db = get_db()
-        i = 1
-        for value in locationdata["data"]["observations"] :
-            macaddr = (value["clientMac"],)
-            exists = db.execute("SELECT EXISTS(SELECT 1 FROM visits WHERE macaddr=?)", macaddr);
-            if(exists.fetchone()[0]==0):
-                db.execute(
-                    'INSERT INTO visits (macaddr)'
-                    ' VALUES (?)',
-                    (value["clientMac"],)
-                )
-            if any(d['macaddr'] == value["clientMac"] for d in active_alarms):
-                print("Alarma antes: {}".format(active_alarms))
-                payload = "{\n  \"roomId\": \"Y2lzY29zcGFyazovL3VzL1JPT00vOTUxNjhjODAtYjRkOC0xMWVhLWE4NjgtM2I1NDc5YzA0NzQz\",\n  \"text\": \"Se conecto Hugo\"\n}"
-                response = requests.request("POST", url, headers=headers, data = payload)
-                res = list(filter(lambda i: i['macaddr'] != value["clientMac"], active_alarms))
-                print("Alarma despues: {}".format(res))
-                print(response.text.encode('utf8'))
-            i += 1
-        db.commit()
-        
-            
+        visits_table_helper(locationdata)
+        disconnection_alarm()   
         print("WiFi Devices Seen")
     elif locationdata["type"] == "BluetoothDevicesSeen":
         print("Bluetooth Devices Seen")
