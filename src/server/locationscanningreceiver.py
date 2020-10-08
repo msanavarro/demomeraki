@@ -36,6 +36,7 @@ import sys, getopt
 import json
 from server.db import get_db
 from server.peoplemanager import visits_table_helper
+from server.floormanager import slice_table_helper
 from server.devicemanager import disconnection_alarm
 import requests
 
@@ -102,6 +103,7 @@ def get_locationJSON():
     # Determine device type
     if locationdata["type"] == "DevicesSeen":
         visits_table_helper(locationdata)
+        slice_table_helper(locationdata)
         disconnection_alarm()   
         print("WiFi Devices Seen")
     elif locationdata["type"] == "BluetoothDevicesSeen":

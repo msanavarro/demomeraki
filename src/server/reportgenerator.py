@@ -53,10 +53,11 @@ def generate_slice_report():
         rows = cursor.fetchall()
         data = []
         for row in rows:
-            data.append({"macaddr":row['macaddr'], 
-                         "name":row['name'], 
-                         "timesseen":row['timesseen'],
-                         "averagestay":row['averagestay']
+            data.append({"date_hour":row['date_hour'], 
+                         "floor0":row['floor0'], 
+                         "floor1":row['floor1'],
+                         "floor2":row['floor2'],
+                         "floor3":row['floor3']
                          })
         return json.dumps(data)
         if error is not None:

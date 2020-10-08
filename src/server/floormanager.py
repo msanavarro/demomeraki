@@ -3,35 +3,54 @@ Created on 7 oct. 2020
 
 @author: msanavarro
 '''
-def visits_table_helper(locationdata):
+# Libraries
+from pprint import pprint
+from flask import Flask
+from flask import Blueprint
+from flask import json
+from flask import request
+from flask import render_template
+from flask import current_app, g
+import sys, getopt
+import json
+from server.db import get_db
+import requests
+import datetime
+
+def slice_table_helper(locationdata):
     db = get_db()
-    #  ESTE CICLO REVISA Y REGISTRA LAS LLEGADAS
+    date_hour = datetime.datetime.now().strftime("%Y-%m-%d %H")
+    exists = db.execute("SELECT EXISTS(SELECT 1 FROM slice WHERE date_hour=?)", (date_hour,))
+    if(exists.fetchone()[0]==0):
+        db.execute(
+                'INSERT INTO slice (date_hour)'
+                    ' VALUES (?)',
+                    (date_hour,)
+                )
+        db.commit()
+            
     if (locationdata["data"]["apFloors"][0] == "Planta Baja"):
         db.execute(
-                'INSERT INTO slice (datetime, floor0)'
-                    ' VALUES (CURRENT_TIMESTAMP, ?)',
-                    (len(locationdata['data']['observations']),)
+                'UPDATE slice SET floor0 = ? WHERE date_hour = ?',
+                    (date_hour, len(locationdata['data']['observations']),)
                 )
         db.commit()
-    else if (locationdata["data"]["apFloors"][0] == "Piso 1"):
+    elif (locationdata["data"]["apFloors"][0] == "Piso 1"):
         db.execute(
-                'INSERT INTO slice (datetime, floor1)'
-                    ' VALUES (CURRENT_TIMESTAMP, ?)',
-                    (len(locationdata['data']['observations']),)
+                'UPDATE slice SET floor1 = ? WHERE date_hour = ?',
+                    (date_hour, len(locationdata['data']['observations']),)
                 )
         db.commit()
-    else if (locationdata["data"]["apFloors"][0] == "Piso 2"):
+    elif (locationdata["data"]["apFloors"][0] == "Piso 2"):
         db.execute(
-                'INSERT INTO slice (datetime, floor2)'
-                    ' VALUES (CURRENT_TIMESTAMP, ?)',
-                    (len(locationdata['data']['observations']),)
+                'UPDATE slice SET floor2 = ? WHERE date_hour = ?',
+                    (date_hour, len(locationdata['data']['observations']),)
                 )
         db.commit()
-    else if (locationdata["data"]["apFloors"][0] == "Piso 3"):
+    elif (locationdata["data"]["apFloors"][0] == "Piso 3"):
         db.execute(
-                'INSERT INTO slice (datetime, floor3)'
-                    ' VALUES (CURRENT_TIMESTAMP, ?)',
-                    (len(locationdata['data']['observations']),)
+                'UPDATE slice SET floor3 = ? WHERE date_hour = ?',
+                    (date_hour, len(locationdata['data']['observations']),)
                 )
         db.commit()
     else:

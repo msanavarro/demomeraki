@@ -33,7 +33,7 @@ CREATE TABLE visits (
 );
 
 CREATE TABLE slice (
-	datetime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	date_hour TEXT NOT NULL,
 	floor0 INTEGER, 
 	floor1 INTEGER,
 	floor2 INTEGER, 
