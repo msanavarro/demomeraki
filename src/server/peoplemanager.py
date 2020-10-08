@@ -100,14 +100,13 @@ def visits_table_helper(locationdata):
             lastexittime = list(db.execute("SELECT lastexittime FROM visits WHERE macaddr=?", macaddr).fetchone())[0]
             timesseen = list(db.execute("SELECT timesSEEN FROM visits WHERE macaddr=?", macaddr).fetchone())[0]
             if(lastarrivaltime >= lastexittime):
-                print('{} está en el edificio'.format(macaddr[0]))
+                a = 1
             else:
                 db.execute(
                     'UPDATE visits SET lastarrivaltime = CURRENT_TIMESTAMP WHERE macaddr = ?', 
                     (value["clientMac"],)
                     )
                 db.commit()
-                print('{} acaba de entrar al edificio'.format(macaddr))
     #  ESTE CICLO REVISA Y REGISTRA LAS SALIDAS
     cursor = db.cursor()
     cursor.execute(
@@ -118,18 +117,16 @@ def visits_table_helper(locationdata):
     for row in rows:
         macaddr = (row['macaddr'],)
         if (any(d['clientMac'] == row['macaddr'] for d in locationdata['data']['observations'])):
-            print('{} sigue en el edificio'.format(row['macaddr']))
+            a = 1
         else:
             lastarrivaltime = list(db.execute("SELECT lastarrivaltime FROM visits WHERE macaddr=?", macaddr).fetchone())[0]
             lastexittime = datetime.datetime.now() #list(db.execute("SELECT CURRENT_TIMESTAMP", macaddr).fetchone())[0]
             timesseen = list(db.execute("SELECT timesseen FROM visits WHERE macaddr=?", macaddr).fetchone())[0]
             averagestay = list(db.execute("SELECT averagestay FROM visits WHERE macaddr=?", macaddr).fetchone())[0]
-            print(lastarrivaltime, lastexittime)
             newavgstay = (timesseen*averagestay +(lastexittime - lastarrivaltime).total_seconds())/(timesseen+1)
             db.execute(
                     'UPDATE visits SET lastexittime = CURRENT_TIMESTAMP, timesseen = ?, averagestay = ? WHERE macaddr = ?', 
                     (timesseen + 1, newavgstay, row['macaddr'])
                     )
             db.commit()
-            print('{} salió del edificio'.format(row['macaddr']))
     return

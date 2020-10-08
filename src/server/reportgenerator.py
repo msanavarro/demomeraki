@@ -25,15 +25,27 @@ def generate_general_report():
         error = None
         db = get_db()
         cursor = db.cursor()
-        cursor.execute(
-            'SELECT * FROM visits'
-        )
+        name = None
+        try:
+            name = request.args['name']
+            cursor.execute(
+                'SELECT * FROM visits WHERE name = ?',
+                (name,)
+                )
+        except:
+            cursor.execute(
+                'SELECT * FROM visits'
+                )
         rows = cursor.fetchall()
         data = []
         for row in rows:
             data.append({"macaddr":row['macaddr'], 
                          "name":row['name'], 
                          "timesseen":row['timesseen'],
+                         "maxstay":row["maxstay"],
+                         "maxdate":row["maxdate"],
+                         "minsstay":row["minstay"],
+                         "mindate":row["mindate"],
                          "averagestay":row['averagestay']
                          })
         return json.dumps(data)
@@ -47,9 +59,16 @@ def generate_slice_report():
         error = None
         db = get_db()
         cursor = db.cursor()
-        cursor.execute(
-            'SELECT * FROM slice'
-        )
+        try:
+            date_hour = request.args['date_hour']
+            cursor.execute(
+                'SELECT * FROM slice WHERE date_hour = ?',
+                (date_hour,)
+                )
+        except:
+            cursor.execute(
+                'SELECT * FROM slice'
+                )
         rows = cursor.fetchall()
         data = []
         for row in rows:

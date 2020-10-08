@@ -28,7 +28,9 @@ def slice_table_helper(locationdata):
                     (date_hour,)
                 )
         db.commit()
-            
+    
+    print("{} tiene {} dispositivos".format(locationdata["data"]["apFloors"][0], len(locationdata['data']['observations'])))
+    print(locationdata["data"]["apFloors"][0] == "Planta Baja")       
     if (locationdata["data"]["apFloors"][0] == "Planta Baja"):
         db.execute(
                 'UPDATE slice SET floor0 = ? WHERE date_hour = ?',
