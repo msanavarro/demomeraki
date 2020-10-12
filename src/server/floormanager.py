@@ -34,25 +34,25 @@ def slice_table_helper(locationdata):
     if (locationdata["data"]["apFloors"][0] == "Planta Baja"):
         db.execute(
                 'UPDATE slice SET floor0 = ? WHERE date_hour = ?',
-                    (date_hour, len(locationdata['data']['observations']),)
+                    (len(locationdata['data']['observations']),date_hour)
                 )
         db.commit()
     elif (locationdata["data"]["apFloors"][0] == "Piso 1"):
         db.execute(
                 'UPDATE slice SET floor1 = ? WHERE date_hour = ?',
-                    (date_hour, len(locationdata['data']['observations']),)
+                    (len(locationdata['data']['observations']),date_hour)
                 )
         db.commit()
     elif (locationdata["data"]["apFloors"][0] == "Piso 2"):
         db.execute(
                 'UPDATE slice SET floor2 = ? WHERE date_hour = ?',
-                    (date_hour, len(locationdata['data']['observations']),)
+                    (len(locationdata['data']['observations']),date_hour)
                 )
         db.commit()
     elif (locationdata["data"]["apFloors"][0] == "Piso 3"):
         db.execute(
                 'UPDATE slice SET floor3 = ? WHERE date_hour = ?',
-                    (date_hour, len(locationdata['data']['observations']),)
+                    (len(locationdata['data']['observations']),date_hour)
                 )
         db.commit()
     else:

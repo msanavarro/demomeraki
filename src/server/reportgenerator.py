@@ -55,7 +55,7 @@ def generate_general_report():
 
 @bp.route('/v1/report/intradia', methods=['GET'])
 def generate_slice_report():
-    if request.method == 'GET':
+    if request.method == 'GET': 
         error = None
         db = get_db()
         cursor = db.cursor()
