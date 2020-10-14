@@ -32,13 +32,16 @@ Reporte de resultados general de afluencia de personal
 
   * **Code:** 200 <br />
     **Content:** `[
-    {
-        mac_adrr: 12:32:43:23:32:EE
-        nombre: "Alejandro Jose Sanchez"
-        num_entradas : 12,
-        num_salidas: 5,
-        tiempo_promedio: 3hr
-         }
+          {
+          "macaddr":[str], 
+          "name":[str],
+          "timesseen":[int],
+          "maxstay":[float],
+          "maxdate":[date],
+          "minsstay":[float],
+          "mindate":[date],
+          "averagestay":[float]
+          }
     ]`
 
 

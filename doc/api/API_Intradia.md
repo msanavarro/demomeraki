@@ -2,7 +2,7 @@
 ----
 
 
-Este API regresa la cantidad de personas en sitio por hora de multiples fechas y filtrado por piso
+Este API regresa la cantidad de personas en sitio a una fecha y hora determinada
 
 * **/v1/report/intradia**
 
@@ -16,11 +16,7 @@ Este API regresa la cantidad de personas en sitio por hora de multiples fechas y
 
    **Required:**
 
-   `piso=[numeric]`<br />
-   `fecha_ini=[date]`<br />
-   `fecha_fin=[date]`<br />
-
-piso = [0,1,2,3] : donde 0 = todos los pisos, 1 = piso 1, 2= piso 2, etc.
+   `date_hour=[date]'YYYY-mm-dd HH'`<br />
 
 *   **Optional:**
 
@@ -35,36 +31,11 @@ piso = [0,1,2,3] : donde 0 = todos los pisos, 1 = piso 1, 2= piso 2, etc.
   * **Code:** 200 <br />
     **type:** 23 <br />
     **Content:** `{
-        piso:0
-        fecha: 12/12/2020
-        pico_de_personas : 20,
-        hora_pico_personas: 11,
-        registro_inicial: 8:00,
-        registro_intradia: {
-          hora0: 0,
-          hora1: 0,
-          hora2: 0,
-          hora3: 0,
-          hora4: 0,
-          hora5: 0,
-          hora6: 0,
-          hora7: 1,
-          hora8: 5,
-          hora9: 10,
-          hora10: 6,
-          hora11: 20,
-          hora12: 20,
-          hora13: 16,
-          hora14: 17,
-          hora15: 15,
-          hora16: 11,
-          hora17: 10,
-          hora18: 5,
-          hora19: 4,
-          hora20: 1,
-          hora21: 1,
-          hora22: 0,
-          hora23: 0
+        date_hour:[fecha],
+        floor0:[int],
+        floor1:[int],
+        floor2:[int],
+        floor3:[int]
         }
       }`
 
